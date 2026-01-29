@@ -25,3 +25,23 @@ Ejecuta `ng e2e` para ejecutar las pruebas de extremo a extremo a través de la 
 ## Ayuda adicional
 
 Para obtener más ayuda sobre Angular CLI, usa `ng help` o consulta la página [Descripción general y referencia de comandos de Angular CLI](https://angular.io/cli).
+
+## Convención de Commits
+
+Este proyecto sigue la convención [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+<tipo>(<scope>): <descripción>
+```
+
+| Tipo       | Descripción                     |
+| ---------- | ------------------------------- |
+| `feat`     | Nueva funcionalidad             |
+| `fix`      | Corrección de bug               |
+| `docs`     | Documentación                   |
+| `style`    | Formato (sin cambios de código) |
+| `refactor` | Refactorización                 |
+| `test`     | Tests                           |
+| `chore`    | Mantenimiento                   |
+
+**Ejemplo:** `feat(ar): añadir modo GPS para AR`
