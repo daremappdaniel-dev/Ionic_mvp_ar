@@ -1,47 +1,93 @@
-# Ar-mvp-ionic
+# Ionic AR MVP
 
-Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 17.3.17.
+Aplicación móvil híbrida de Realidad Aumentada construida con Ionic, Angular y Capacitor. Permite visualizar contenido 3D interactivo en experiencias AR multiplataforma.
 
-## Servidor de desarrollo
+## Tecnologías
 
-Ejecuta `ionic serve` (o `ng serve`) para levantar un servidor de desarrollo. Navega a `http://localhost:8100/`. La aplicación se recargará automáticamente si cambias cualquiera de los archivos fuente.
+- **Ionic 8.x** - Framework de desarrollo móvil híbrido
+- **Angular 17.3.17** - Framework frontend
+- **Capacitor 6.x** - Bridge nativo para iOS/Android
+- **A-Frame + AR.js** - Motor de realidad aumentada web
+- **TypeScript 5.x** - Lenguaje tipado
 
-## Generación de código
+## Funcionalidades
 
-Ejecuta `ng generate component component-name` para generar un nuevo componente. También puedes usar `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Módulo              | Estado        |
+| ------------------- | ------------- |
+| Company Store       | Implementado  |
+| AR GPS-based        | En desarrollo |
+| Soporte iOS/Android | Disponible    |
+| Progressive Web App | Disponible    |
 
-## Compilación
+## Instalación
 
-Ejecuta `ng build` para compilar el proyecto. Los artefactos de compilación se almacenarán en el directorio `dist/`.
+### Prerrequisitos
 
-## Ejecución de pruebas unitarias
+- Node.js 18+
+- npm 9+
+- Ionic CLI (`npm i -g @ionic/cli`)
 
-Ejecuta `ng test` para ejecutar las pruebas unitarias a través de [Karma](https://karma-runner.github.io).
+### Setup
 
-## Ejecución de pruebas de extremo a extremo (e2e)
+```bash
+git clone https://github.com/daremappdaniel-dev/Ionic_mvp_ar.git
+cd Ionic_mvp_ar
+npm install
+ionic serve
+```
 
-Ejecuta `ng e2e` para ejecutar las pruebas de extremo a extremo a través de la plataforma de tu elección. Para usar este comando, primero necesitas agregar un paquete que implemente capacidades de prueba e2e.
+La aplicación estará disponible en `http://localhost:8100`
 
-## Ayuda adicional
+## Estructura del proyecto
 
-Para obtener más ayuda sobre Angular CLI, usa `ng help` o consulta la página [Descripción general y referencia de comandos de Angular CLI](https://angular.io/cli).
+```
+src/
+├── app/
+│   ├── core/              # Servicios, guards, interceptors
+│   ├── shared/            # Componentes reutilizables
+│   └── features/
+│       └── company-store/ # Módulo de tienda AR
+├── assets/                # Modelos 3D, recursos
+└── environments/          # Configuración por entorno
+```
 
-## Convención de Commits
+## Scripts
 
-Este proyecto sigue la convención [Conventional Commits](https://www.conventionalcommits.org/):
+| Comando          | Descripción                  |
+| ---------------- | ---------------------------- |
+| `ionic serve`    | Servidor de desarrollo       |
+| `ng build`       | Build de producción          |
+| `ng test`        | Tests unitarios              |
+| `ionic cap sync` | Sync con plataformas nativas |
+
+## Build nativo
+
+```bash
+ionic build --prod
+ionic cap sync
+ionic cap open ios      # Abre Xcode
+ionic cap open android  # Abre Android Studio
+```
+
+## Contribución
+
+Seguimos [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```
 <tipo>(<scope>): <descripción>
 ```
 
-| Tipo       | Descripción                     |
-| ---------- | ------------------------------- |
-| `feat`     | Nueva funcionalidad             |
-| `fix`      | Corrección de bug               |
-| `docs`     | Documentación                   |
-| `style`    | Formato (sin cambios de código) |
-| `refactor` | Refactorización                 |
-| `test`     | Tests                           |
-| `chore`    | Mantenimiento                   |
+| Tipo       | Descripción         |
+| ---------- | ------------------- |
+| `feat`     | Nueva funcionalidad |
+| `fix`      | Corrección de bug   |
+| `docs`     | Documentación       |
+| `refactor` | Refactorización     |
+| `test`     | Tests               |
+| `chore`    | Mantenimiento       |
 
-**Ejemplo:** `feat(ar): añadir modo GPS para AR`
+## Requisitos para AR
+
+- Dispositivo móvil con GPS y cámara
+- Conexión HTTPS
+- Permisos de cámara y ubicación
