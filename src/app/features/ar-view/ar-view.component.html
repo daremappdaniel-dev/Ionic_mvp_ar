@@ -1,0 +1,66 @@
+<div class="ar-container" [ngSwitch]="currentStrategy">
+  <!-- MODO 1: A-FRAME (Declarativo) -->
+  <div *ngSwitchCase="ArStrategy.AFRAME" #arContainer class="fullscreen-container">
+    <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
+      renderer="logarithmicDepthBuffer: true;">
+      <!-- Cámara Mock para PC -->
+      <a-camera gps-new-camera="simulateLatitude: 40.416775; simulateLongitude: -3.703790"></a-camera>
+
+      <!-- Cubo de prueba -->
+      <a-entity gps-new-entity-place="latitude: 40.4170; longitude: -3.703790" geometry="primitive: box"
+        material="color: red" scale="10 10 10">
+      </a-entity>
+    </a-scene>
+  </div>
+
+  <!-- MODO 2: PURE THREE.JS (Canvas puro) -->
+  <div *ngSwitchCase="ArStrategy.THREEJS" #arContainer class="fullscreen-container">
+    <canvas id="c" style="width: 100%; height: 100%; display: block"></canvas>
+    <div class="overlay-info">Modo Three.js Activo</div>
+  </div>
+
+  <!-- MODO 3: HTML OVERLAY (Divs flotantes) -->
+  <div *ngSwitchCase="ArStrategy.HTML" #arContainer class="fullscreen-container html-ar-mode">
+    <!-- Aquí iría el <video> de fondo si lo gestionamos manualmente -->
+    <div class="poi-marker" style="
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+      ">
+      📍 Destino (HTML Mode)
+    </div>
+    <div class="overlay-info">Modo HTML Overlay Activo</div>
+  </div>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" (click)="openAR()">
+    <ion-fab-button color="primary">
+      <ion-icon name="scan"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>
+
+<!-- CSS Global para contenedores -->
+<style>
+  .fullscreen-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .overlay-info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #0f0;
+    padding: 5px 10px;
+    z-index: 999;
+    font-family: monospace;
+  }
+</style>

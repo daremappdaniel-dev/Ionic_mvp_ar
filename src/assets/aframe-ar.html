@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AR Experience</title>
+    <!-- include A-Frame -->
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <!-- include ar.js for A-Frame -->
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+</head>
+
+<body style="margin: 0px; overflow: hidden;">
+    <a-scene embedded arjs>
+        <a-marker preset="hiro">
+            <a-image src="poster.jpg" rotation="-90 0 0" width="3" height="4"></a-image>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
+</html>
